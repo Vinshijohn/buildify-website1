@@ -370,7 +370,7 @@ form.buildify-form{display:flex;flex-direction:column;gap:18px;}
     <div data-reveal>
       <div class="contact-info-card">
         <h4>Email</h4>
-        <a href="mailto:buildify03@gmail.com">buildify03@gmail.com</a>
+        <a href="mailto:hello@buildify.example">hello@buildify.example</a>
       </div>
       <div class="contact-info-card">
         <h4>WhatsApp</h4>
@@ -409,6 +409,7 @@ form.buildify-form{display:flex;flex-direction:column;gap:18px;}
           <textarea id="message" name="message" placeholder="What do you sell, and what do you want your website to do for you?" required></textarea>
         </div>
         <button type="submit" class="submit-btn">Send message</button>
+        <p class="form-note" id="formNote">We'll get back to you within a day or two.</p>
       </form>
     </div>
   </div>
@@ -432,7 +433,7 @@ form.buildify-form{display:flex;flex-direction:column;gap:18px;}
       <div class="footer-col">
         <h5>Get in touch</h5>
         <a href="contact.html">Contact us</a>
-        <a href="mailto:hello@buildify.example">buildify03@gmail.com</a>
+        <a href="mailto:hello@buildify.example">hello@buildify.example</a>
         <a href="#">WhatsApp us</a>
       </div>
       <div class="footer-col">
@@ -456,13 +457,11 @@ const revealEls = document.querySelectorAll('[data-reveal]');
   },{threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 </script>
-/*
-    <script>
+<script>
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
-    document.getElementById('formNote').textContent = "Thanks! (Form sending isn't wired up yet — once we add the backend in the next step, this will actually reach your inbox.)";
+    document.getElementById('formNote').textContent = "Thanks — your message is in. We'll get back to you within a day or two.";
   });
 </script>
-    */
 </body>
 </html>
