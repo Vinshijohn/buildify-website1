@@ -456,11 +456,13 @@ const revealEls = document.querySelectorAll('[data-reveal]');
   },{threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 </script>
-<script>
+/*
+    <script>
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
     document.getElementById('formNote').textContent = "Thanks! (Form sending isn't wired up yet — once we add the backend in the next step, this will actually reach your inbox.)";
   });
 </script>
+    */
 </body>
 </html>
