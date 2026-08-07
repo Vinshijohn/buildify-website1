@@ -469,10 +469,35 @@ const revealEls = document.querySelectorAll('[data-reveal]');
   revealEls.forEach(el=>io.observe(el));
 </script>
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function(e){
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    document.getElementById('formNote').textContent = "Thanks — your message is in. We'll get back to you within a day or two.";
-  });
+
+    const form = e.target;
+
+    const enquiry = {
+        name: form.name.value,
+        shop_name: form.shop.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        message: form.message.value
+    };
+
+    const { error } = await supabase
+        .from('enquiries')
+        .insert([enquiry]);
+
+    const note = document.getElementById('formNote');
+
+    if (error) {
+        console.error(error);
+        note.textContent = "❌ Failed to send your enquiry. Please try again.";
+        note.style.color = "red";
+    } else {
+        note.textContent = "✅ Thank you! Your enquiry has been sent successfully.";
+        note.style.color = "green";
+        form.reset();
+    }
+});
 </script>
 </body>
 </html>
